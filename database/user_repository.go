@@ -3,12 +3,12 @@ package database
 import "github.com/upper/db/v4"
 
 type user struct {
-	Id         uint64 `db: "id,omitempty"`
-	Phone      string `db: "phone"`
-	Email      string `db: "email"`
 	FirstName  string `db: "first_name"`
 	SecondName string `db: "second_name"`
+	Phone      string `db: "phone"`
+	Email      string `db: "email"`
 	Password   string `db: "password"`
+	Id         uint64 `db: "id,omitempty"`
 }
 
 func SaveVitaliy(sess db.Session) error {

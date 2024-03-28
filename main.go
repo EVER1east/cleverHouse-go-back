@@ -23,7 +23,6 @@ func main() {
 		log.Fatalf("Ми всрали з'єднання з базою даних: %s", err)
 	}
 
-	
 	defer sess.Close()
 
 	fmt.Println(sess)
