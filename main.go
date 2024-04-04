@@ -1,30 +1,25 @@
 package main
 
 import (
-	"cleverHouse-go-back/config"
+	"cleverHouse-go-back/config/container"
+	"cleverHouse-go-back/domain"
 	"fmt"
 	"log"
-
-	"github.com/upper/db/v4/adapter/postgresql"
 )
 
 func main() {
-	var config = config.GetConfig()
-
-	var settings = postgresql.ConnectionURL{
-		Database: config.DbName,
-		Host:     config.DbHost,
-		User:     config.DbUser,
-		Password: config.DbPassword,
+	var cont = container.New()
+	var user = domain.User{
+		FirstName:  "Vitaliy",
+		SecondName: "Obrigaliy",
+		Email:      "kostastepan7@gmail.com",
+		Phone:      "+0958766135",
+		Password:   "123",
 	}
-
-	sess, err := postgresql.Open(settings)
+	var newUser, err = cont.UserRepo.Save(user)
 	if err != nil {
-		log.Fatalf("Ми всрали з'єднання з базою даних: %s", err)
+		log.Printf("Errrrror: %s", err)
 	}
 
-	defer sess.Close()
-
-	fmt.Println(sess)
-
+	fmt.Println(newUser)
 }
