@@ -9,6 +9,7 @@ import (
 
 func main() {
 	var cont = container.New()
+
 	var user = domain.User{
 		FirstName:  "Vitaliy",
 		SecondName: "Obrigaliy",
@@ -16,6 +17,7 @@ func main() {
 		Phone:      "+0958766135",
 		Password:   "123",
 	}
+
 	var newUser, err = cont.UserRepo.Save(user)
 	if err != nil {
 		log.Printf("Errrrror: %s", err)

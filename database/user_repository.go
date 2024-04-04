@@ -9,12 +9,12 @@ import (
 const UsersTableName = "users"
 
 type user struct {
-	FirstName  string `db: "first_name"`
-	SecondName string `db: "second_name"`
-	Phone      string `db: "phone"`
-	Email      string `db: "email"`
-	Password   string `db: "password"`
-	Id         uint64 `db: "id,omitempty"`
+	FirstName  string `db:"first_name"`
+	SecondName string `db:"second_name"`
+	Phone      string `db:"phone"`
+	Email      string `db:"email"`
+	Password   string `db:"password"`
+	Id         uint64 `db:"id,omitempty"`
 }
 type UserRepository struct {
 	coll db.Collection
